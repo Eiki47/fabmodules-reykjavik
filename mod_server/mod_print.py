@@ -102,10 +102,10 @@ def quit():
 # command line
 #
 if (len(sys.argv) != 4):
-   print "command line: mod_print.py device separator file"
-   print "   device = printer device"
-   print "   separator = command separator character ('' to ignore)"
-   print "   file = file to send"
+   print ("command line: mod_print.py device separator file")
+   print ("   device = printer device")
+   print ("   separator = command separator character ('' to ignore)")
+   print ("   file = file to send")
    sys.exit(1)
 device_name = sys.argv[1]
 separator = sys.argv[2]
@@ -118,7 +118,7 @@ try:
    data = file_handle.read()
    file_handle.close()
 except:
-   print 'error: can not open file '+file_name
+   print ('error: can not open file '+file_name)
    sys.exit(1)
 #
 # open device
@@ -126,7 +126,7 @@ except:
 try:
    device = open(device_name,'w',0)
 except:
-   print 'error: can not open device '+device_name
+   print ('error: can not open device '+device_name)
    sys.exit(1)
 #
 # send file and exit if no command separator

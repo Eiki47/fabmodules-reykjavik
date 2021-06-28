@@ -17,6 +17,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Fab Modules</title>
 <link rel="stylesheet" href="stylesheet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
 <!--
 // load initial fab modules
 -->
@@ -44,8 +47,7 @@
 
 
 <div class="left">
-<div>
-  <div class="input-bar">
+  <div class="top-menu">
     <span id="mod_prompt"></span>
     <span id="mod_logo"></span>
     <div id="mod_inputs">
@@ -62,6 +64,13 @@
       <span id="mod_processes_label"></span>
       <div id="mod_processes_menu"></div>
    </div>
+    <div class="mode-button">
+      <span>Light Switch</span>
+      <label class="switch">
+        <input type="checkbox" onClick="toggleLightMode()">
+        <span class="slider round"></span>
+      </label>
+    </div>
   </div>
   <div class="display-image">
     <div id="mod_display">
@@ -72,12 +81,11 @@
       </div>
   </div>
 </div>
-</div>
 <div class="right">
   <div id="mod_controls">
-    <div id="mod_input_controls"></div>
-    <div id="mod_output_controls"></div>
-    <div id="mod_process_controls"></div>
+    <div id="mod_input_controls" class="input-controls"></div>
+    <div id="mod_output_controls" class="input-controls"></div>
+    <div id="mod_process_controls" class="input-controls"></div>
     </div>
 </div>
 <!--
@@ -85,7 +93,12 @@
 -->
 <a id="mod_download" style="display:none"></a>
 
-
+<script>
+  function toggleLightMode() {
+     var element = document.body;
+     element.classList.toggle("light-mode");
+  }
+  </script>
 </body>
 </html>
 

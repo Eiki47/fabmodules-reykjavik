@@ -37,16 +37,11 @@ define([
       //
       var span = findEl("mod_prompt")
       span.innerHTML = "<a href='mods.html'>fab modules</a>"
-      span.setAttribute("style","display:block;position:absolute;top:"+Defaults.margin+";left:"+(1.5*Defaults.margin+span.offsetHeight))
-      globals.mod_menu_width = 2.2*span.offsetWidth
-      globals.mod_menu_height = span.offsetHeight
       //
       var span = findEl("mod_logo")
-      span.setAttribute("style","display:block;position:absolute;top:"+Defaults.margin+";left:"+Defaults.margin+";width:"+globals.mod_menu_height+";height:"+globals.mod_menu_height)
       span.appendChild(ui_CBA(globals.mod_menu_width))
       //
       var div = findEl("mod_inputs")
-      div.setAttribute("style","position:absolute;top:"+(1.5*Defaults.margin+globals.mod_menu_height)+";left:"+Defaults.margin)
       //
       var span = findEl("mod_inputs_label")
       //span.setAttribute("style","text-align:center;vertical-align:middle;display:table-cell;width:"+globals.mod_menu_width+";height:"+2*globals.mod_menu_height)
@@ -55,7 +50,6 @@ define([
       span.style.color = Defaults.text_color
       //
       var div = findEl("mod_outputs")
-      div.setAttribute("style","position:absolute;top:"+(1.5*Defaults.margin+globals.mod_menu_height)+";left:"+(Defaults.margin+globals.mod_menu_width))
       //
       var span = findEl("mod_outputs_label")
       span.setAttribute("style","text-align:center;display:none;width:"+globals.mod_menu_width+";height:"+1.5*globals.mod_menu_height)
@@ -63,25 +57,11 @@ define([
       span.style.color = Defaults.text_color
       //
       var div = findEl("mod_processes")
-      div.setAttribute("style","position:absolute;top:"+(1.5*Defaults.margin+globals.mod_menu_height)+";left:"+(Defaults.margin+2*globals.mod_menu_width))
       //
       var span = findEl("mod_processes_label")
       span.setAttribute("style","text-align:center;display:none;width:"+globals.mod_menu_width+";height:"+1.5*globals.mod_menu_height)
       span.style.background = Defaults.background_color
       span.style.color = Defaults.text_color
-      //
-      var canvas = findEl("mod_input_canvas")
-      canvas.style.height = "100%"
-      //
-      var canvas = findEl("mod_process_canvas")
-      canvas.style.height = "100%"
-      //
-      var canvas = findEl("mod_output_canvas")
-      canvas.style.height = "100%"
-      //
-      var canvas = findEl("mod_gl_canvas")
-      canvas.style.height = "100%"
-      //
       }
    //
    // mod_add_process

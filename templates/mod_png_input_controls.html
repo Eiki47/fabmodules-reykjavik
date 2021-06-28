@@ -1,9 +1,15 @@
 <!-- mod_png_input_controls -->
-<b>input</b><br>
-file: {{ input_name }}  <br>
-dpi: <input type="text" id="mod_dpi" size="3" value="{{ dpi }}"> <br>
-size:<br>
-{{ img_width }}  x {{ img_height}}  px<br>
-<span id="mod_mm">{{ mm_w }} x {{ mm_h }} mm</span><br>
-<span id="mod_in">{{ in_w }} x {{ in_h }} in</span><br>
-<input type="button" value="invert image" id="invert_image_btn">
+<span class="header">Input</span>
+<div class="row">
+  <span class="title">File:</span>
+  <span class="ellipsis">{{ input_name }}</span>
+</div>
+<div class="row">
+  <span class="title">DPI:</span>
+  <input type="text" id="mod_dpi" size="3" value="{{ dpi }}" class="input-form small">
+</div>
+<span class="title">Dimensions:</span>
+<span>{{ img_width }} x {{ img_height}} px</span>
+<span id="mod_mm">{{ mm_w }} x {{ mm_h }} mm</span>
+<span id="mod_in">{{ in_w }} x {{ in_h }} in</span>
+<input type="button" value="Invert image" id="invert_image_btn" class="button">

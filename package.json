@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "PATH=./mod_server/:$PATH node ./mod_server/mod_server.js"
+    "start": "node ./mod_server/mod_server.js"
   },
   "repository": {
     "type": "git",

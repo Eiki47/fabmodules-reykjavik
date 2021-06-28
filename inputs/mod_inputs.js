@@ -19,14 +19,7 @@ define(['mods/mod_ui'], function(ui) {
    // define input types and handlers
    //
    var input_array = [
-      ["image (.png)", "inputs/mod_png.js"],
-      ["drawing (.svg)", "inputs/mod_svg.js"],
-      ["path (.svg)", ""],
-      ["mesh (.stl)", "inputs/mod_stl.js"],
-      ["volume (.vol)", "inputs/mod_vol.js"],
-      ["volume (.gif)", ""],
-      ["frep (.f)", ""],
-      ["load settings", "inputs/mod_settings.js"]
+      ["image (.png)", "inputs/mod_png.js"]
    ]
    //
    // call mod_inputs

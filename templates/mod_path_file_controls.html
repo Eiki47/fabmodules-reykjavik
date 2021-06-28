@@ -1,7 +1,12 @@
-&nbsp;<input type="button" id="mod_save" value="save">
-&nbsp;<input type="button" id="mod_send" value="send">
-<br>send command:
-<br>&nbsp;&nbsp;&nbsp;<input type="text" id="mod_command" value="{{ send }}">
-<br>server:
-<br>&nbsp;&nbsp;&nbsp;<input type="text" id="mod_server" value="{{ server }}">
-
+<div class="row">
+  <input type="button" id="mod_save" value="Save" class="button half">
+  <input type="button" id="mod_send" value="Send" class="button half">
+</div>
+<div class="row">
+  <span class="title">Send command:</span>
+  <input type="text" id="mod_command" value="{{ send }}">
+</div>
+<div class="row">
+  <span class="title">Server:</span>
+  <input type="text" id="mod_server" value="{{ server }}">
+</div>

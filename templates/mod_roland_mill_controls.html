@@ -1,35 +1,65 @@
-<br><b>output</b>
-<br>machine
-<select id="mod_roland_machine">
-	<option value="default"></option>
-	<option value="mdx_15">MDX-15</option>
-	<option value="mdx_20">MDX-20</option>
-	<option value="mdx_40">MDX-40</option>
-	<option value="srm_20">SRM-20</option>
-</select>
-<br>speed (mm/s):
-&nbsp;<input type="text" id="mod_speed" size="3" value="">
-<br>x0 (mm):
-&nbsp;<input type="text" id="mod_x0" size="3" value="">
-<br>y0 (mm):
-&nbsp;<input type="text" id="mod_y0" size="3" value="">
-<br>z0 (mm):
-&nbsp;<input type="text" id="mod_z0" size="3" value="">
-{{#if show_move }}
-<br><input type="button" id="mod_move_xyz" value="move to xyz0">
-{{/if }}
-<br>zjog (mm):
-&nbsp;<input type="text" id="mod_jog" size="3" value="">
-{{#if show_move }}
-<br><input type="button" id="mod_move_xy" value="move to xy0 zjog">
-{{/if }}
-<br>xhome (mm):
-&nbsp;<input type="text" id="mod_xhome" size="3" value="">
-<br>yhome (mm):
-&nbsp;<input type="text" id="mod_yhome" size="3" value="">
-<br>zhome (mm):
-&nbsp;<input type="text" id="mod_zhome" size="3" value="">
-{{#if show_move }}
-<br><input type="button" id="mod_home" value="move to xyzhome and stop">
-{{/if }}
+<span class="header">Output</span>
+<div class="row">
+  <span class="title">Machine</span>
+  <select id="mod_roland_machine">
+    <option value="default"></option>
+    <option value="mdx_15">MDX-15</option>
+    <option value="mdx_20">MDX-20</option>
+    <option value="mdx_40">MDX-40</option>
+    <option value="srm_20">SRM-20</option>
+  </select>
+</div>
+<div class="row">
+  <span class="title">speed (mm/s):&nbsp;</span>
+  <input type="text" id="mod_speed" size="3" value="">
+</div>
+<div class="col">
+  <div class="row">
+    <span class="title">x0 (mm):&nbsp;</span>
+    <input type="text" id="mod_x0" size="3" value="">
+  </div>
+  <div class="row">
+    <span class="title">y0 (mm):&nbsp;</span>
+    <input type="text" id="mod_y0" size="3" value="">
+  </div>
+  <div class="row">
+    <span class="title">z0 (mm): &nbsp;</span>
+    <input type="text" id="mod_z0" size="3" value="">
+  </div>
+</div>
+<div>
+  {{#if show_move }}
+  <input type="button" id="mod_move_xyz" value="Move to xyz0"  class="button">
+  {{/if }}
+</div>
+<div class="row">
+  <span class="title">zjog (mm):&nbsp;</span>
+  <input type="text" id="mod_jog" size="3" value="">
+</div>
+<div>
+  {{#if show_move }}
+  <input type="button" id="mod_move_xy" value="Move to xy0 zjog" class="button">
+  {{/if }}
+</div>
+<div class="col">
+  <div class="row">
+    <span class="title">xhome (mm):&nbsp;</span>
+    <input type="text" id="mod_xhome" size="3" value="">
+  </div>
+  <div class="row">
+    <span class="title">yhome (mm):&nbsp;</span>
+    <input type="text" id="mod_yhome" size="3" value="">
+  </div>
+  <div class="row">
+    <span class="title">zhome (mm):&nbsp;</span>
+    <input type="text" id="mod_zhome" size="3" value="">
+  </div>
+</div>
+<div>
+  {{#if show_move }}
+  <input type="button" id="mod_home" value="Move to xyzhome and stop" class="button">
+  {{/if }}
+</div>
+
+
 

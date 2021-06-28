@@ -2,7 +2,7 @@
 
 import sys
 
-print sys.argv
+print (sys.argv)
 
 port = sys.argv[1] 
 fname = sys.argv[2]
@@ -14,7 +14,7 @@ try:
   cmd = data_file.read()
   data_file.close()
 except:
-  print 'Failed to open input file %s' % fname
+  print ('Failed to open input file %s' % fname)
   sys.exit(1)
 
 

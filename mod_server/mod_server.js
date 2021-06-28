@@ -28,7 +28,7 @@ var StaticServer = require('node-static').Server
 // Handle a single WebSocket message from the webinterface
 function onWsMessage(ws, data) {
   var msg = JSON.parse(data)
-
+  console.log(msg);
   if (!msg.file_command) {
     ws.send("error: " + 'No send command specified');
     return;

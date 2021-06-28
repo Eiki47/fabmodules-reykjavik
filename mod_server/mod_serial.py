@@ -90,11 +90,11 @@ def quit():
 # command line
 #
 if (len(sys.argv) != 5):
-   print "command line: mod_serial.py port speed flow file"
-   print "   port = serial port"
-   print "   speed = comm speed"
-   print "   flow = flow control (none | xonxoff | rtscts | dsrdtr )"
-   print "   file = file to send"
+   print ("command line: mod_serial.py port speed flow file")
+   print ("   port = serial port")
+   print ("   speed = comm speed")
+   print ("   flow = flow control (none | xonxoff | rtscts | dsrdtr )")
+   print ("   file = file to send")
    sys.exit()
 port = sys.argv[1]
 speed = sys.argv[2]
