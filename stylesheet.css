@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+.left {
+  width: 80%;
+  height: 100%;
+}
+.right {
+  width: 20%;
+  height: 100%;
+}
+.input-bar {
+  border: 1px solid black;
+  height: 15%;
+  width: 100%;
+}
+.display-image {
+  height: 85%;
+  width: 100%;
+  border: 1px solid black;
+}
+.mod-inputs-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100px;
+}
+
+.mod-inputs-menu span {
+  border: 1px solid black;
+  height: 100px!important;
+  width: 100px!important;
+}

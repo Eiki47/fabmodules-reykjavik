@@ -70,23 +70,18 @@ define([
       span.style.background = Defaults.background_color
       span.style.color = Defaults.text_color
       //
-      var div = findEl("mod_display")
-      div.setAttribute("style","position:absolute;top:"+(2.5*Defaults.margin+2*globals.mod_menu_height)+";left:"+Defaults.margin+";width:"+(Defaults.width*.75-Defaults.margin)+";height:"+Defaults.height)
-      //
       var canvas = findEl("mod_input_canvas")
-      canvas.style.width = "100%"
+      canvas.style.height = "100%"
       //
       var canvas = findEl("mod_process_canvas")
-      canvas.style.width = "100%"
+      canvas.style.height = "100%"
       //
       var canvas = findEl("mod_output_canvas")
-      canvas.style.width = "100%"
+      canvas.style.height = "100%"
       //
       var canvas = findEl("mod_gl_canvas")
-      canvas.style.width = "100%"
+      canvas.style.height = "100%"
       //
-      var div = findEl("mod_controls")
-      div.setAttribute("style","position:absolute;top:"+(2.5*Defaults.margin+2*globals.mod_menu_height)+";left:"+(Defaults.width*.75+Defaults.margin)+";width:"+(Defaults.width*.25-Defaults.margin))
       }
    //
    // mod_add_process

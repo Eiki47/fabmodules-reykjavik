@@ -16,7 +16,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Fab Modules</title>
-
+<link rel="stylesheet" href="stylesheet.css">
 <!--
 // load initial fab modules
 -->
@@ -38,38 +38,48 @@
 -->
 <input type="file" id="mod_file_input" style="position:absolute;left:0;top:0;opacity:0">
 
-<div id="mod_display">
-   <canvas id="mod_input_canvas" style="display:none"></canvas>
-   <canvas id="mod_output_canvas" style="display:none"></canvas>
-   <canvas id="mod_process_canvas" style="display:none"></canvas>
-   <canvas id="mod_gl_canvas" style="display:none" tabindex="1"></canvas>
+
+
+
+
+
+<div class="left">
+<div>
+  <div class="input-bar">
+    <span id="mod_prompt"></span>
+    <span id="mod_logo"></span>
+    <div id="mod_inputs">
+      <span id="mod_inputs_label"></span>
+      <div id="mod_inputs_menu"></div>
+      </div>
+   
+   <div id="mod_outputs">
+      <span id="mod_outputs_label"></span>
+      <div id="mod_outputs_menu"></div>
+      </div>
+   
+   <div id="mod_processes">
+      <span id="mod_processes_label"></span>
+      <div id="mod_processes_menu"></div>
    </div>
-
-<div id="mod_controls">
-   <div id="mod_input_controls"></div>
-   <div id="mod_output_controls"></div>
-   <div id="mod_process_controls"></div>
-   </div>
-
-<span id="mod_prompt"></span>
-
-<span id="mod_logo"></span>
-
-<div id="mod_inputs">
-   <span id="mod_inputs_label"></span>
-   <div id="mod_inputs_menu"></div>
-   </div>
-
-<div id="mod_outputs">
-   <span id="mod_outputs_label"></span>
-   <div id="mod_outputs_menu"></div>
-   </div>
-
-<div id="mod_processes">
-   <span id="mod_processes_label"></span>
-   <div id="mod_processes_menu"></div>
-   </div>
-
+  </div>
+  <div class="display-image">
+    <div id="mod_display">
+      <canvas id="mod_input_canvas" style="display:none"></canvas>
+      <canvas id="mod_output_canvas" style="display:none"></canvas>
+      <canvas id="mod_process_canvas" style="display:none"></canvas>
+      <canvas id="mod_gl_canvas" style="display:none" tabindex="1"></canvas>
+      </div>
+  </div>
+</div>
+</div>
+<div class="right">
+  <div id="mod_controls">
+    <div id="mod_input_controls"></div>
+    <div id="mod_output_controls"></div>
+    <div id="mod_process_controls"></div>
+    </div>
+</div>
 <!--
 // hidden element for download
 -->
