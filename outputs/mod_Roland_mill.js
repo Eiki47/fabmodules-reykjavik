@@ -25,96 +25,41 @@ define(['require',
    var fileUtils = require('mods/mod_file');
    var mod_roland_mill_controls_tpl = Handlebars.compile(require('text!templates/mod_roland_mill_controls.html'))
    var findEl = globals.findEl
-   var label = findEl("mod_inputs_label")
-   var input = label.innerHTML
-   var model = 'mdx_20';  
-   var rml_units = {
-      mdx_15: 40.0,
-      mdx_20: 40.0,
-      mdx_40: 100.0,
-      srm_20: 100.0
-      };
-   var rml_unit = rml_units.mdx_20;
-   if (input == "path (.svg)") {
-      //
-      // vector input processes
-      //
-      }
-   else {
-      //
-      // raster input processes
-      //
-      mod_add_process([
-         ["name", "PCB traces (1/64)"],
-         ["module", "Roland_mill"],
-         ["controls", "mod_path_image_21D_controls"],
-         ["routine", "mod_Roland_Mill_path"],
-         ["speed", "4"],
-         ["depth", "0.1"],
-         ["diameter", "0.4"],
-         ["offsets", "4"],
-         ["overlap", "50"],
-         ["error", "1.1"],
-         ["merge", "1.5"],
-         ])
-      mod_add_process([
-         ["name", "PCB outline (1/32)"],
-         ["module", "Roland_mill"],
-         ["controls", "mod_path_image_22D_controls"],
-         ["routine", "mod_Roland_Mill_path"],
-         ["speed", "4"],
-         ["depth", "0.6"],
-         ["thickness", "1.7"],
-         ["diameter", "0.79"],
-         ["offsets", "1"],
-         ["error", "1.1"],
-         ["merge", "1.5"],
-         ])
-      mod_add_process([
-         ["name", "PCB traces (0.010)"],
-         ["module", "Roland_mill"],
-         ["controls", "mod_path_image_21D_controls"],
-         ["routine", "mod_Roland_Mill_path"],
-         ["speed", "2"],
-         ["depth", "0.1"],
-         ["diameter", "0.254"],
-         ["offsets", "1"],
-         ["overlap", "50"],
-         ["error", "1.1"],
-         ["merge", "1.5"],
-         ])
-      mod_add_process([
-         ["name", "wax rough cut (1/8)"],
-         ["module", "Roland_mill"],
-         ["controls", "mod_path_image_25D_controls"],
-         ["routine", "mod_Roland_Mill_path"],
-         ["speed", "20"],
-         ["depth", "1"],
-         ["diameter", "3.175"],
-         ["overlap", "50"],
-         ["offsets", "-1"],
-         ["error", "1.1"],
-         ["merge", "1.5"],
-         ])
-      mod_add_process([
-         ["name", "wax finish cut (1/8)"],
-         ["module", "Roland_mill"],
-         ["controls", "mod_path_image_3D_controls"],
-         ["routine", "mod_Roland_Mill_path"],
-         ["speed", "20"],
-         ["diameter", "3.175"],
-         ["length", "25.4"],
-         ["overlap", "90"],
-         ["error", "1.1"],
-         ])
-      }
+   var rml_unit = 40.0
+   mod_add_process([
+      ["name", "Traces (1/64)"],
+      ["module", "Roland_mill"],
+      ["controls", "mod_path_image_21D_controls"],
+      ["routine", "mod_Roland_Mill_path"],
+      ["speed", "4"],
+      ["depth", "0.1"],
+      ["diameter", "0.4"],
+      ["offsets", "4"],
+      ["overlap", "50"],
+      ["error", "1.1"],
+      ["merge", "1.5"],
+      ])
+   mod_add_process([
+      ["name", "Outline (1/32)"],
+      ["module", "Roland_mill"],
+      ["controls", "mod_path_image_22D_controls"],
+      ["routine", "mod_Roland_Mill_path"],
+      ["speed", "4"],
+      ["depth", "0.6"],
+      ["thickness", "1.7"],
+      ["diameter", "0.79"],
+      ["offsets", "1"],
+      ["error", "1.1"],
+      ["merge", "1.5"],
+      ])
+      
    //
    // mod_load_handler
    //   file load handler
    //
    function mod_load_handler() {
       globals.output = "Roland_mill"
-      ui.ui_prompt("process?")
+      //ui.ui_prompt("process?")
       var controls = findEl("mod_output_controls")
       var ctx = {
          show_move: true
@@ -128,54 +73,8 @@ define(['require',
          findEl("mod_z0").setAttribute("value",globals.z0)
       if (globals.zjog != "")
          findEl("mod_jog").setAttribute("value",globals.zjog)
-      findEl("mod_roland_machine", false).addEventListener("change", function(ev){
-         rml_unit = rml_units[this.value];
-	      model = this.value;
-         if (model == 'mdx_20') {
-            if (findEl("mod_command").value == "") findEl("mod_command").value = "mod_serial.py /dev/ttyUSB0 9600 dsrdtr"
-            globals.send = findEl("mod_command").value
-            if (findEl("mod_x0").value == "") findEl("mod_x0").value = 10
-            if (findEl("mod_y0").value == "") findEl("mod_y0").value = 10
-            if (findEl("mod_z0").value == "") findEl("mod_z0").value = 0
-            if (findEl("mod_jog").value == "") findEl("mod_jog").value = 2
-            findEl("mod_xhome").value = 0;
-            findEl("mod_yhome").value = 152.4;
-            findEl("mod_zhome").value = 60.5;
-            }
-         else if (model == 'mdx_40') {
-            if (findEl("mod_command").value == "") findEl("mod_command").value = "mod_serial.py /dev/ttyUSB0 9600 dsrdtr"
-            globals.send = findEl("mod_command").value
-            if (findEl("mod_x0").value == "") findEl("mod_x0").value = 10
-            if (findEl("mod_y0").value == "") findEl("mod_y0").value = 10
-            if (findEl("mod_z0").value == "") findEl("mod_z0").value = 0
-            if (findEl("mod_jog").value == "") findEl("mod_jog").value = 2
-            findEl("mod_xhome").value = 0;
-            findEl("mod_yhome").value = 152.4;
-            findEl("mod_zhome").value = 60.5;
-            }
-         else if (model == 'mdx_15') {
-            if (findEl("mod_command").value == "") findEl("mod_command").value = "mod_serial.py /dev/ttyUSB0 9600 rtscts"
-            globals.send = findEl("mod_command").value
-            if (findEl("mod_x0").value == "") findEl("mod_x0").value = 10
-            if (findEl("mod_y0").value == "") findEl("mod_y0").value = 10
-            if (findEl("mod_z0").value == "") findEl("mod_z0").value = 0
-            if (findEl("mod_jog").value == "") findEl("mod_jog").value = 2
-            findEl("mod_xhome").value = 0;
-            findEl("mod_yhome").value = 92.4;
-            findEl("mod_zhome").value = 60.5;
-            }
-         else if (model == 'srm_20') {
-            if (findEl("mod_command").value == "") findEl("mod_command").value = "mod_print.py /dev/usb/lp1 ';'";
-            globals.send = findEl("mod_command").value
-            if (findEl("mod_x0").value == "") findEl("mod_x0").value = 10
-            if (findEl("mod_y0").value == "") findEl("mod_y0").value = 10
-            if (findEl("mod_z0").value == "") findEl("mod_z0").value = 10
-            if (findEl("mod_jog").value == "") findEl("mod_jog").value = 12
-            findEl("mod_xhome").value = 0;
-            findEl("mod_yhome").value = 152.4;
-            findEl("mod_zhome").value = 60.5;
-            }
-         },false);
+      globals.send = "mod_serial.py /dev/ttyUSB0 9600 dsrdtr"
+
       findEl("mod_x0",false).addEventListener("input", function() {
          globals.x0 = findEl("mod_x0").value
          });
@@ -227,19 +126,9 @@ define(['require',
          fileUtils.send(name, file, command, server);
          });
       var label = findEl("mod_processes_label")
-      label.innerHTML = "process"
-      label.style.display = "block"
-      label.onclick = function(e) {
-         ui.ui_clear()
-         ui.ui_show_input()
-         ui.ui_menu_process()
-         }
-      label.onmouseover = function(e) {
-         this.style.background = ui.defaults.highlight_background_color
-         }
-      label.onmouseout = function(e) {
-         this.style.background = ui.defaults.background_color
-         }
+      ui.ui_clear()
+      ui.ui_show_input()
+      ui.ui_menu_process() 
       }
    //
    // mod_Roland_Mill_path

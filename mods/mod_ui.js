@@ -36,32 +36,15 @@ define([
       // set up UI elements
       //
       var span = findEl("mod_prompt")
-      span.innerHTML = "<a href='mods.html'>fab modules</a>"
+      span.innerHTML = ""
       //
       var span = findEl("mod_logo")
-      span.appendChild(ui_CBA(globals.mod_menu_width))
+      span.appendChild(ui_CBA(64))
       //
       var div = findEl("mod_inputs")
       //
       var span = findEl("mod_inputs_label")
       //span.setAttribute("style","text-align:center;vertical-align:middle;display:table-cell;width:"+globals.mod_menu_width+";height:"+2*globals.mod_menu_height)
-      span.setAttribute("style","text-align:center;display:block;width:"+globals.mod_menu_width+";height:"+1.5*globals.mod_menu_height)
-      span.style.background = Defaults.background_color
-      span.style.color = Defaults.text_color
-      //
-      var div = findEl("mod_outputs")
-      //
-      var span = findEl("mod_outputs_label")
-      span.setAttribute("style","text-align:center;display:none;width:"+globals.mod_menu_width+";height:"+1.5*globals.mod_menu_height)
-      span.style.background = Defaults.background_color
-      span.style.color = Defaults.text_color
-      //
-      var div = findEl("mod_processes")
-      //
-      var span = findEl("mod_processes_label")
-      span.setAttribute("style","text-align:center;display:none;width:"+globals.mod_menu_width+";height:"+1.5*globals.mod_menu_height)
-      span.style.background = Defaults.background_color
-      span.style.color = Defaults.text_color
       }
    //
    // mod_add_process
@@ -227,56 +210,9 @@ define([
       var output_canvas = findEl("mod_gl_canvas")
       output_canvas.style.display = "none"
       }
-   //
-   // mod_ui_menu_action_item
-   //    add action menu item
-   //
-   var ui_menu_action_item = function(item, menu, label) {
-      var span = document.createElement("span")
-      if (item[1] != "") {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         span.addEventListener("click", function(e) {
-            if (menu.hasChildNodes()) {
-               menu.innerHTML = ""
-               }
-            label.innerHTML = item[0]
-            exports.ui_prompt("")
-            mod_file.call(item[1])
-            }, false)
-         }
-      else {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.disable_text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         }
-      menu.appendChild(span)
-      }
-   //
-   // mod_ui_menu_action
-   //   build action menu
-   //
-   exports.ui_menu_action = function(items, name) {
-      var menu = findEl(name + "_menu")
-      var label = findEl(name + "_label")
-      if (menu.hasChildNodes()) {
-         menu.innerHTML = ""
-         return
-         }
-      for (var i = 0; i < items.length; ++i) {
-         ui_menu_action_item(items[i], menu, label)
-         }
+
+   exports.ui_menu_action = function(item) {
+      mod_file.call(item)
       }
    //
    // mod_ui_menu_eval_item
@@ -335,96 +271,42 @@ define([
    // mod_ui_menu_file_item
    //    add file menu item
    //
-   var ui_menu_file_item = function(item, menu, label) {
-      var span = document.createElement("span")
-      if (item[1] != "") {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         span.addEventListener("click", function(e) {
-            if (menu.hasChildNodes()) {
-               menu.innerHTML = ""
-               }
-            label.innerHTML = item[0]
-            exports.ui_prompt("")
-            mod_file.call(item[1])
-            var file = findEl("mod_file_input")
-            file.click()
-            }, false)
-         }
-      else {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.disable_text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         }
-      menu.appendChild(span)
-      }
    //
    // mod_ui_menu_file
    //   build file menu
    //
-   exports.ui_menu_file = function(items, name) {
-      var menu = findEl(name + "_menu")
-      var label = findEl(name + "_label")
-      if (menu.hasChildNodes()) {
-         menu.innerHTML = ""
-         return
-         }
-      for (var i = 0; i < items.length; ++i) {
-         ui_menu_file_item(items[i], menu, label)
-         }
-      }
+   exports.ui_menu_file = function(item) {
+      mod_file.call(item)
+      var file = findEl("mod_file_input")
+      file.click()
+   }
    //
    // mod_ui_menu_process_item
    //    add process menu item
    //
    var ui_menu_process_item = function(item, name) {
       var menu = findEl(name + "_menu")
-      var label = findEl(name + "_label")
-      var span = document.createElement("span")
-      if (item[1] != "") {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         span.addEventListener("click", function(e) {
-            if (menu.hasChildNodes()) {
-               menu.innerHTML = ""
-               }
-            label.innerHTML = item[0]
-            exports.ui_prompt("")
-            globals.myeval(item[1])
-            var key = "edit_" + item[1].slice(0, -2) + globals.output
-            if (globals.process_edits[key] != undefined)
-               globals.myeval(globals.process_edits[key].func + "()")
-            }, false)
-         }
-      else {
-         span.setAttribute("style", "text-align:center;width:" + globals.mod_menu_width + ";height:" + globals.mod_menu_height + ";background:" + Defaults.background_color + ";color:" + Defaults.disable_text_color + ";display:block")
-         span.innerHTML = item[0] + "<br>"
-         span.addEventListener("mouseout", function(e) {
-            this.style.background = Defaults.background_color
-            }, false)
-         span.addEventListener("mouseover", function(e) {
-            this.style.background = Defaults.highlight_background_color
-            }, false)
-         }
-      menu.appendChild(span)
-      }
+      var radio_container = document.createElement("label")
+      var radio = document.createElement("input")
+      var checkmark = document.createElement("span")
+      radio_container.setAttribute("class", "radio-container")
+      radio_container.innerHTML = item[0]
+      checkmark.setAttribute("class", "checkmark")
+      radio.setAttribute("type","radio")
+      radio.setAttribute("id", item[0])
+      radio.setAttribute("name", "process")
+      radio.setAttribute("value",item[0])
+      radio.setAttribute("class", "left-spacing radio-button")
+      radio.addEventListener("click", function(e) {
+         globals.myeval(item[1])
+         var key = "edit_" + item[1].slice(0, -2) + globals.output
+         if (globals.process_edits[key] != undefined)
+            globals.myeval(globals.process_edits[key].func + "()")
+         }, false)
+      radio_container.appendChild(radio)
+      radio_container.appendChild(checkmark)
+      menu.appendChild(radio_container)
+   }
    //
    // mod_ui_menu_process
    //    build process menu
@@ -450,10 +332,13 @@ define([
    //    change prompt message
    //
    exports.ui_prompt = function(m) {
-      if (m != "")
-         findEl("mod_prompt").innerHTML = m
+      var prompt = findEl("mod_prompt")
+      if (m != "") {
+         prompt.innerHTML = m
+         prompt.style.display = "flex"
+      }
       else
-         findEl("mod_prompt").innerHTML = "<a href='mods.html'>fab modules</a>"
+         prompt.innerHTML = ""
       }
    //
    // mod_ui_show_input

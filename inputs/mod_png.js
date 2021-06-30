@@ -193,7 +193,7 @@ define(['require',
       //
       // call outputs
       //
-      ui.ui_prompt("output format?")
+      //ui.ui_prompt("output format?")
       // mod_outputs()
       outputs.init();
    }
