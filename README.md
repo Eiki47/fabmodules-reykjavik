@@ -5,9 +5,7 @@ lasercutters, CNC-mills and waterjets commonly found in [fablabs](https://www.fa
 
 Fab Modules Reykjavik is a more user-friendly interface based on the original fabmodules website, only for the MDX-20.
 
-You can find the original fabmodules at
-
-    https://github.com/fabmodules/fabmodules-html5
+You can find the original fabmodules at [https://github.com/fabmodules/fabmodules-html5](https://github.com/fabmodules/fabmodules-html5)
 
 ## Before:
 ![Milling circuit boards](./screenshot-pcbmilling.png)
