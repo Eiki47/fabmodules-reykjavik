@@ -1,13 +1,17 @@
-# Fab Modules Project
+# Fab Modules Reykjavik Project
 
 Fab Modules is a browser-based CAM system, which allows to generate toolpaths for and control
 lasercutters, CNC-mills and waterjets commonly found in [fablabs](https://www.fablabs.io/).
 
 Fab Modules Reykjavik is a more user-friendly interface based on the original fabmodules website, only for the MDX-20.
 
-# Before:
+You can find the original fabmodules at
+
+    https://github.com/fabmodules/fabmodules-html5
+
+## Before:
 ![Milling circuit boards](./screenshot-pcbmilling.png)
-# After:
+## After:
 ![Milling circuit boards](./fabmodules-reykjavik.PNG)
 
 ## Supported machines
