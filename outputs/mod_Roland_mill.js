@@ -52,7 +52,19 @@ define(['require',
       ["error", "1.1"],
       ["merge", "1.5"],
       ])
-      
+  mod_add_process([
+    ["name", "PCB traces (0.010)"],
+    ["module", "Roland_mill"],
+    ["controls", "mod_path_image_21D_controls"],
+    ["routine", "mod_Roland_Mill_path"],
+    ["speed", "2"],
+    ["depth", "0.1"],
+    ["diameter", "0.254"],
+    ["offsets", "1"],
+    ["overlap", "50"],
+    ["error", "1.1"],
+    ["merge", "1.5"],
+    ])
    //
    // mod_load_handler
    //   file load handler
