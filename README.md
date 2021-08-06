@@ -33,7 +33,7 @@ Start the server which lets webinterface communicate with hardware
 
     npm start
 
-You can now open Fabmodules web interface at http://localhost:12345/index.html
+You can now open Fabmodules web interface at http://127.0.0.1:12345/index.html
 
 See [the wiki](https://github.com/FabModules/fabmodules-html5/wiki) for further instructions.
 
